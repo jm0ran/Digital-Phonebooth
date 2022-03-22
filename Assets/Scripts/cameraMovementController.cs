@@ -137,16 +137,20 @@ public class cameraMovementController : MonoBehaviour
                     }
                     
                     //Camera returns to home destination
-                    while(cameraT.position != CT.position){
-                        cameraT.position = Vector3.MoveTowards(cameraT.position, new Vector3(CT.position.x, CT.position.y, cameraT.position.z), speed * Time.deltaTime);
+                    Vector3 homeTarget = new Vector3(CT.position.x, CT.position.y, cameraT.position.z);
+                    while(cameraT.position != homeTarget){
+                        Debug.Log("Moving Back");
+                        cameraT.position = Vector3.MoveTowards(cameraT.position, homeTarget, speed * Time.deltaTime);
                         yield return null;
                     }
+                    Debug.Log("Back");
 
                     //Bar comes back down
                     while(DialBar.localPosition != OpenBarTarget){
                         DialBar.localPosition = Vector3.MoveTowards(DialBar.localPosition, OpenBarTarget, 256f * Time.deltaTime);
                         yield return null;
                     }
+                    Debug.Log("Comes back down");
 
                 }
                 
