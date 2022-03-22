@@ -408,6 +408,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1396363608}
     m_Modifications:
+    - target: {fileID: -289027624175019507, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2790e22d5b2894413bacb3e0f94f6596, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: KuwaitMarker
@@ -589,6 +593,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1396363608}
     m_Modifications:
+    - target: {fileID: -289027624175019507, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3278bd0319b1745e58c9e1fcfd4adb72, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: AustraliaMarker
@@ -599,11 +607,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8837045901857279311, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 49.462
+      value: 50.479
       objectReference: {fileID: 0}
     - target: {fileID: 8837045901857279311, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.88
+      value: -15.895
       objectReference: {fileID: 0}
     - target: {fileID: 8837045901857279311, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -855,6 +863,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1396363608}
     m_Modifications:
+    - target: {fileID: -289027624175019507, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: baf66eb51fc0543ac94d5b0ec21921f2, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: PeruMarker
