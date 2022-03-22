@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class cameraMovementController : MonoBehaviour
 {
@@ -20,7 +21,9 @@ public class cameraMovementController : MonoBehaviour
     public float speed = 16f;
     public Camera mainCamera;
     public TextMeshProUGUI numberText;
+    public Image dialedFlag;
     public string currentlyDialed;
+    
 
     public Dictionary<string, Transform> destDictionary = new Dictionary<string, Transform>();
 
@@ -38,6 +41,7 @@ public class cameraMovementController : MonoBehaviour
 
         mainCamera = gameObject.GetComponent<Camera>();
         numberText = GameObject.Find("DialedNumber").GetComponent<TextMeshProUGUI>();
+        dialedFlag = GameObject.Find("DialedFlag").GetComponent<Image>();
 
         //Add values to dictionary
         destDictionary.Add("203", CT);
@@ -112,6 +116,8 @@ public class cameraMovementController : MonoBehaviour
 
                 //Top bar comes back
                 while(DialBar.localPosition != OpenBarTarget){
+                    //Assigns new info to the bar
+                    dialedFlag.sprite = destDictionary[currentlyDialed].GetComponent<markerInfo>().flag;
                     DialBar.localPosition = Vector3.MoveTowards(DialBar.localPosition, OpenBarTarget, 256f * Time.deltaTime);
                     yield return null;
                 }
@@ -147,6 +153,11 @@ public class cameraMovementController : MonoBehaviour
 
                     //Bar comes back down
                     while(DialBar.localPosition != OpenBarTarget){
+                        //Set back to default US flag
+                        dialedFlag.sprite = CT.gameObject.GetComponent<markerInfo>().flag;
+                        //Set back to default Dial Prompt
+                        numberText.alignment = TextAlignmentOptions.Center;
+                        numberText.text = "Dial";
                         DialBar.localPosition = Vector3.MoveTowards(DialBar.localPosition, OpenBarTarget, 256f * Time.deltaTime);
                         yield return null;
                     }
