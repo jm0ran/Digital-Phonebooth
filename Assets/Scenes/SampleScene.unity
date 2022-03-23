@@ -404,6 +404,7 @@ MonoBehaviour:
   speed: 16
   mainCamera: {fileID: 0}
   numberText: {fileID: 0}
+  dialedFlag: {fileID: 0}
   currentlyDialed: 
 --- !u!1001 &572872246
 PrefabInstance:
@@ -1202,7 +1203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b059fedebcf0d4aa49f6bf850d3e898a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99be73c87b7094b09b34b68f97e0b60f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
