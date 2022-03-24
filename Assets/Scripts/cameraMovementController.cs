@@ -75,7 +75,7 @@ public class cameraMovementController : MonoBehaviour
         numberText.alignment = TextAlignmentOptions.Left;
         numberText.text = "<mspace=mspace=80>" + currentlyDialed + "</mspace>";
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         
         if(!triggerCode){
             moveLocked = false;
@@ -92,13 +92,16 @@ public class cameraMovementController : MonoBehaviour
                 found = true;
                 Debug.Log("Found the position maybe");
             }else{
-                Debug.Log("Code not valid");
+                currentlyDialed = "";
+                numberText.alignment = TextAlignmentOptions.Center;
+                yield return new WaitForSeconds(0.5f);
+                numberText.text = "Dial";
             }
             
             if(found){
                 Debug.Log("Starting slide");
                 Transform DialBar = GameObject.Find("DialBar").GetComponent<Transform>();
-                Vector3 StowedBarTarget = new Vector3(5, 350, 0);
+                Vector3 StowedBarTarget = new Vector3(5, 400, 0);
                 Vector3 OpenBarTarget = new Vector3(5, 210, 0);
                 //Top bar leaves
                 while(DialBar.localPosition != StowedBarTarget){
@@ -161,11 +164,11 @@ public class cameraMovementController : MonoBehaviour
                         DialBar.localPosition = Vector3.MoveTowards(DialBar.localPosition, OpenBarTarget, 256f * Time.deltaTime);
                         yield return null;
                     }
-                    Debug.Log("Comes back down");
+                    currentlyDialed = "";
 
                 }
                 
-                //Now that the clip is complete I want to go back to Connecticut
+               
 
                 
 
@@ -178,36 +181,36 @@ public class cameraMovementController : MonoBehaviour
     
     }
 
-    void FixedUpdate(){
+    void Update(){
         if(!moveLocked){
-            if(Input.GetKey(KeyCode.Alpha1)){
+            if(Input.GetKeyDown(KeyCode.Alpha1)){
                 StartCoroutine(processDial(1));
             }
-            else if(Input.GetKey(KeyCode.Alpha2)){
+            if(Input.GetKeyDown(KeyCode.Alpha2)){
                 StartCoroutine(processDial(2));
             }
-            else if(Input.GetKey(KeyCode.Alpha3)){
+            if(Input.GetKeyDown(KeyCode.Alpha3)){
                 StartCoroutine(processDial(3));
             }
-            else if(Input.GetKey(KeyCode.Alpha4)){
+            if(Input.GetKeyDown(KeyCode.Alpha4)){
                 StartCoroutine(processDial(4));
             }
-            else if(Input.GetKey(KeyCode.Alpha5)){
+            if(Input.GetKeyDown(KeyCode.Alpha5)){
                 StartCoroutine(processDial(5));
             }
-            else if(Input.GetKey(KeyCode.Alpha6)){
+            if(Input.GetKeyDown(KeyCode.Alpha6)){
                 StartCoroutine(processDial(6));
             }
-            else if(Input.GetKey(KeyCode.Alpha7)){
+            if(Input.GetKeyDown(KeyCode.Alpha7)){
                 StartCoroutine(processDial(7));
             }
-            else if(Input.GetKey(KeyCode.Alpha8)){
+            if(Input.GetKeyDown(KeyCode.Alpha8)){
                 StartCoroutine(processDial(8));
             }
-            else if(Input.GetKey(KeyCode.Alpha9)){
+            if(Input.GetKeyDown(KeyCode.Alpha9)){
                 StartCoroutine(processDial(9));
             }
-            else if(Input.GetKey(KeyCode.Alpha0)){
+            if(Input.GetKeyDown(KeyCode.Alpha0)){
                 StartCoroutine(processDial(0));
             }
 
