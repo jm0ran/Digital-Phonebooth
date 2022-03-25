@@ -8,15 +8,20 @@ public class cameraMovementController : MonoBehaviour
 {
     private Transform cameraT;
 
-
-    private Transform CT;
-    private Transform Kuwait;
-    private Transform Ireland;
+    //Transform Varaibles Used to store the location of each destination
+    private Transform CT; 
     private Transform Australia;
-    private Transform Brazil;
+    private Transform Kuwait;
+    private Transform Philippines;
+    private Transform Lebanon;
     private Transform Peru;
+    private Transform Brazil;
     private Transform China;
+    private Transform Ethiopia;
+    private Transform Singapore;
+    private Transform NewZealand;
 
+    //Application Parameters
     private bool moveLocked = false; 
     public float speed = 16f;
     public Camera mainCamera;
@@ -24,39 +29,49 @@ public class cameraMovementController : MonoBehaviour
     public Image dialedFlag;
     public string currentlyDialed;
     
-
+    //Dictionary to store corrolations between dial codes and destinations
     public Dictionary<string, Transform> destDictionary = new Dictionary<string, Transform>();
 
 
     void Start(){
-        cameraT = gameObject.GetComponent<Transform>();
-        CT = GameObject.Find("CTMarker").GetComponent<Transform>();
-        Ireland = GameObject.Find("IrelandMarker").GetComponent<Transform>();
-        Kuwait = GameObject.Find("KuwaitMarker").GetComponent<Transform>();
-        Australia = GameObject.Find("AustraliaMarker").GetComponent<Transform>();
-        Brazil = GameObject.Find("BrazilMarker").GetComponent<Transform>();
-        Peru = GameObject.Find("PeruMarker").GetComponent<Transform>();
-        China = GameObject.Find("ChinaMarker").GetComponent<Transform>();
+        cameraT = gameObject.GetComponent<Transform>(); //Grabs Camera Transform
 
+        //Assigns each pointer to it's respective variable
+        CT = GameObject.Find("CTMarker").GetComponent<Transform>(); 
+        Australia = GameObject.Find("AustraliaMarker").GetComponent<Transform>();
+        Kuwait = GameObject.Find("KuwaitMarker").GetComponent<Transform>();
+        Philippines = GameObject.Find("PhilippinesMarker").GetComponent<Transform>();
+        Lebanon = GameObject.Find("LebanonMarker").GetComponent<Transform>();
+        Peru = GameObject.Find("PeruMarker").GetComponent<Transform>();
+        Brazil = GameObject.Find("BrazilMarker").GetComponent<Transform>();
+        China = GameObject.Find("ChinaMarker").GetComponent<Transform>();
+        Ethiopia = GameObject.Find("EthiopiaMarker").GetComponent<Transform>();
+        Singapore = GameObject.Find("SingaporeMarker").GetComponent<Transform>();
+        NewZealand = GameObject.Find("NewZealandMarker").GetComponent<Transform>();
+        
 
         mainCamera = gameObject.GetComponent<Camera>();
         numberText = GameObject.Find("DialedNumber").GetComponent<TextMeshProUGUI>();
         dialedFlag = GameObject.Find("DialedFlag").GetComponent<Image>();
 
-        //Add values to dictionary
-        destDictionary.Add("203", CT);
-        destDictionary.Add("351", Ireland);
-        destDictionary.Add("965", Kuwait);
+        //New
+        //Adding necessary values to dictionary
         destDictionary.Add("610", Australia);
-        destDictionary.Add("550", Brazil);
+        destDictionary.Add("965", Kuwait);
+        destDictionary.Add("630", Philippines);
+        destDictionary.Add("961", Lebanon);
         destDictionary.Add("510", Peru);
+        destDictionary.Add("550", Brazil);
         destDictionary.Add("860", China);
+        destDictionary.Add("251", Ethiopia);
+        destDictionary.Add("650", Singapore);
+        destDictionary.Add("640", NewZealand);
 
-        //Starting position
-         cameraT.position = new Vector3(CT.position.x, CT.position.y, -10f);
+        //Starting position in Connecticut
+        cameraT.position = new Vector3(CT.position.x, CT.position.y, -10f);
 
          //Starting Text
-         numberText.text = "Dial";
+        numberText.text = "Dial";
          
 
     }
@@ -81,7 +96,7 @@ public class cameraMovementController : MonoBehaviour
             moveLocked = false;
             //Going to need to unlock after transition and audio player
         }
-        moveLocked = false;
+        
 
         if(triggerCode){ //Slide out dial bar and start the visual transition
             //Heres where I need to set the destination and the slide
