@@ -231,6 +231,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1396363608}
     m_Modifications:
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: flag
+      value: 
+      objectReference: {fileID: 21300000, guid: 2db7f4952d46d4528ac56aca0d32ed33, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: SingaporeMarker
@@ -293,6 +297,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1396363608}
     m_Modifications:
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: flag
+      value: 
+      objectReference: {fileID: 21300000, guid: d2119d283b3404143a2e47863e4f5bf0, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: LebanonMarker
@@ -597,6 +605,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1396363608}
     m_Modifications:
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: flag
+      value: 
+      objectReference: {fileID: 21300000, guid: a609889045be94f85a363b7f7846ad67, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: EthiopiaMarker
@@ -1024,6 +1036,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1396363608}
     m_Modifications:
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: flag
+      value: 
+      objectReference: {fileID: 21300000, guid: 355910d29d7594dea8085c1a82bd5eb4, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: NewZealandMarker
@@ -1086,6 +1102,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1396363608}
     m_Modifications:
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: flag
+      value: 
+      objectReference: {fileID: 21300000, guid: 508183043165a43a8aa7f05c0c28a75f, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: PhilippinesMarker
