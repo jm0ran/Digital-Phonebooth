@@ -70,7 +70,7 @@ while True: # Run indefinitely
         phoneLifted = True
         sendTheMessage(12)
         sleep(0.07)
-    if(GPIO.input(hangup) and phoneLifted):
+    elif(GPIO.input(hangup) and phoneLifted):
         print("Phone has been put down")
         phoneLifted = False
         sendTheMessage(11)
