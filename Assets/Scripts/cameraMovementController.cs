@@ -103,7 +103,7 @@ public class cameraMovementController : MonoBehaviour
             Vector3 dest = new Vector3(0,0,0);
             bool found = false;
             if(destDictionary.ContainsKey(currentlyDialed)){
-                dest = destDictionary[currentlyDialed].position;
+                dest = destDictionary[currentlyDialed].position + new Vector3(1.5f,0,0);
                 found = true;
                 Debug.Log("Found the position maybe");
             }else{
@@ -123,6 +123,10 @@ public class cameraMovementController : MonoBehaviour
                     DialBar.localPosition = Vector3.MoveTowards(DialBar.localPosition, StowedBarTarget, 256f * Time.deltaTime);
                     yield return null;
                 }
+
+                StowedBarTarget = new Vector3(175, 400, 0);
+                OpenBarTarget = new Vector3(175, 210, 0);   
+                DialBar.localPosition = new Vector3(175, DialBar.localPosition.y, DialBar.localPosition.z);
 
                 Vector3 cameraDest = new Vector3(dest.x, dest.y, -10f);
 
@@ -147,10 +151,10 @@ public class cameraMovementController : MonoBehaviour
                     markerAudio.Play(0);
                     Debug.Log(markerAudio.clip.length);
                     yield return new WaitForSeconds(1f);
-                    while(markerAudio.time <= markerAudio.clip.length && markerAudio.time != 0){
-                        yield return null;
+                    while(markerAudio.time <= markerAudio.clip.length && markerAudio.time != 0 && !Input.GetKeyDown(KeyCode.Return)){
                         //Will exit once clip is complete
                         Debug.Log(markerAudio.time);
+                        yield return null;
                     }
                     yield return new WaitForSeconds(0.5f);
 
@@ -161,6 +165,9 @@ public class cameraMovementController : MonoBehaviour
                     }
                     
                     //Camera returns to home destination
+                    DialBar.localPosition = new Vector3(5, DialBar.localPosition.y, DialBar.localPosition.z);
+                    StowedBarTarget = new Vector3(5, 400, 0);
+                    OpenBarTarget = new Vector3(5, 210, 0);
                     Vector3 homeTarget = new Vector3(CT.position.x, CT.position.y, cameraT.position.z);
                     while(cameraT.position != homeTarget){
                         Debug.Log("Moving Back");
