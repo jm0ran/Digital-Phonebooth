@@ -28,6 +28,11 @@ public class cameraMovementController : MonoBehaviour
     public TextMeshProUGUI numberText;
     public Image dialedFlag;
     public string currentlyDialed;
+
+    //Lower Bar References
+    private Transform lowerBar;
+    private Vector3 lowerStowedTarget = new Vector3(175,-450,0);
+    private Vector3 lowerBarTarget = new Vector3(175,-140,0);
     
     //Dictionary to store corrolations between dial codes and destinations
     public Dictionary<string, Transform> destDictionary = new Dictionary<string, Transform>();
@@ -53,6 +58,7 @@ public class cameraMovementController : MonoBehaviour
         mainCamera = gameObject.GetComponent<Camera>();
         numberText = GameObject.Find("DialedNumber").GetComponent<TextMeshProUGUI>();
         dialedFlag = GameObject.Find("DialedFlag").GetComponent<Image>();
+        lowerBar = GameObject.Find("BottomBar").GetComponent<Transform>();
 
         //New
         //Adding necessary values to dictionary
@@ -69,6 +75,7 @@ public class cameraMovementController : MonoBehaviour
 
         //Starting position in Connecticut
         cameraT.position = new Vector3(CT.position.x, CT.position.y, -10f);
+        lowerBar.localPosition = lowerStowedTarget;
 
          //Starting Text
         numberText.text = "Dial";
@@ -116,7 +123,7 @@ public class cameraMovementController : MonoBehaviour
             if(found){
                 Debug.Log("Starting slide");
                 Transform DialBar = GameObject.Find("DialBar").GetComponent<Transform>();
-                Vector3 StowedBarTarget = new Vector3(5, 400, 0);
+                Vector3 StowedBarTarget = new Vector3(5, 500, 0);
                 Vector3 OpenBarTarget = new Vector3(5, 210, 0);
                 //Top bar leaves
                 while(DialBar.localPosition != StowedBarTarget){
@@ -136,11 +143,16 @@ public class cameraMovementController : MonoBehaviour
                     yield return null;
                 }
 
-                //Top bar comes back
-                while(DialBar.localPosition != OpenBarTarget){
+                dialedFlag.sprite = destDictionary[currentlyDialed].GetComponent<markerInfo>().flag;
+
+
+                //Top bar comes back AND Bottom Bar comes in
+                while(DialBar.localPosition != OpenBarTarget || lowerBar.localPosition != lowerBarTarget){
                     //Assigns new info to the bar
-                    dialedFlag.sprite = destDictionary[currentlyDialed].GetComponent<markerInfo>().flag;
-                    DialBar.localPosition = Vector3.MoveTowards(DialBar.localPosition, OpenBarTarget, 256f * Time.deltaTime);
+                    if(DialBar.localPosition != OpenBarTarget){
+                        DialBar.localPosition = Vector3.MoveTowards(DialBar.localPosition, OpenBarTarget, 256f * Time.deltaTime);
+                    }  
+                    lowerBar.localPosition = Vector3.MoveTowards(lowerBar.localPosition, lowerBarTarget, 256f * Time.deltaTime);
                     yield return null;
                 }
 
@@ -151,16 +163,20 @@ public class cameraMovementController : MonoBehaviour
                     markerAudio.Play(0);
                     Debug.Log(markerAudio.clip.length);
                     yield return new WaitForSeconds(1f);
-                    while(markerAudio.time <= markerAudio.clip.length && markerAudio.time != 0 && !Input.GetKeyDown(KeyCode.Return)){
+                    while(markerAudio.time <= markerAudio.clip.length && markerAudio.time != 0 && !Input.GetKeyDown(KeyCode.H)){
                         //Will exit once clip is complete
                         Debug.Log(markerAudio.time);
                         yield return null;
                     }
+                    markerAudio.Stop();
                     yield return new WaitForSeconds(0.5f);
 
                     //Bar goes back up
-                    while(DialBar.localPosition != StowedBarTarget){
-                        DialBar.localPosition = Vector3.MoveTowards(DialBar.localPosition, StowedBarTarget, 256f * Time.deltaTime);
+                    while(DialBar.localPosition != StowedBarTarget || lowerBar.localPosition != lowerStowedTarget){
+                        if(DialBar.localPosition != StowedBarTarget){
+                            DialBar.localPosition = Vector3.MoveTowards(DialBar.localPosition, StowedBarTarget, 256f * Time.deltaTime);
+                        }
+                        lowerBar.localPosition = Vector3.MoveTowards(lowerBar.localPosition, lowerStowedTarget, 256f * Time.deltaTime);
                         yield return null;
                     }
                     
@@ -204,6 +220,11 @@ public class cameraMovementController : MonoBehaviour
     }
 
     void Update(){
+        if(Input.GetKeyDown(KeyCode.H) && currentlyDialed.Length < 3){
+            currentlyDialed = "";
+            numberText.alignment = TextAlignmentOptions.Center;
+            numberText.text = "Dial";
+        }
         if(!moveLocked){
             if(Input.GetKeyDown(KeyCode.Alpha1)){
                 StartCoroutine(processDial(1));
