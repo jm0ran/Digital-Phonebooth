@@ -165,6 +165,7 @@ public class cameraMovementController : MonoBehaviour
                     yield return new WaitForSeconds(1f);
                     while(markerAudio.time <= markerAudio.clip.length && markerAudio.time != 0 && !Input.GetKeyDown(KeyCode.H)){
                         //Will exit once clip is complete
+                        Debug.Log("Time is:");
                         Debug.Log(markerAudio.time);
                         yield return null;
                     }
