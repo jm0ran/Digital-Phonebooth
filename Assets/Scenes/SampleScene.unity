@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 55984542}
   - component: {fileID: 55984541}
   m_Layer: 5
-  m_Name: TopUI
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: flag
       value: 
       objectReference: {fileID: 21300000, guid: 2db7f4952d46d4528ac56aca0d32ed33, type: 3}
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 32900000, guid: 1af704078c84f46b9873ce6a17a62b06, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: SingaporeMarker
@@ -310,6 +314,10 @@ PrefabInstance:
       propertyPath: flag
       value: 
       objectReference: {fileID: 21300000, guid: d2119d283b3404143a2e47863e4f5bf0, type: 3}
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 32900000, guid: 8b96ecfb2103244549663d62073a5bec, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: LebanonMarker
@@ -385,6 +393,10 @@ PrefabInstance:
       propertyPath: flag
       value: 
       objectReference: {fileID: 21300000, guid: 96fb2c2489e1e4981bea00ba39fe981b, type: 3}
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 32900000, guid: 58d51f6bfd47847918fbcf80164952b7, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: ChinaMarker
@@ -477,7 +489,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.6431373, g: 0.8000001, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -557,6 +569,10 @@ PrefabInstance:
       propertyPath: flag
       value: 
       objectReference: {fileID: 21300000, guid: 9f46631755e0748c4b3f121c1d515e38, type: 3}
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 32900000, guid: f39bfa5a2e65a4d99afc4c46a639697c, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: KuwaitMarker
@@ -622,6 +638,10 @@ PrefabInstance:
       propertyPath: flag
       value: 
       objectReference: {fileID: 21300000, guid: a609889045be94f85a363b7f7846ad67, type: 3}
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 32900000, guid: 4ddf58845ac0b4ad19ecb43ff4d822a2, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: EthiopiaMarker
@@ -755,6 +775,7 @@ GameObject:
   - component: {fileID: 735287892}
   - component: {fileID: 735287894}
   - component: {fileID: 735287893}
+  - component: {fileID: 735287895}
   m_Layer: 5
   m_Name: BottomBar
   m_TagString: Untagged
@@ -821,6 +842,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735287891}
   m_CullTransparentMesh: 1
+--- !u!328 &735287895
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735287891}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 0c47e0566ac5445a7ae50eca693f51df, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 3687af647142b4e7090289eda54074a8, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: Application.streamingAssetsPath/Videos/Australia.mp4
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 01
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1001 &859534235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -842,11 +898,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8837045901857279311, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.4561
+      value: 5.22
       objectReference: {fileID: 0}
     - target: {fileID: 8837045901857279311, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2316
+      value: -2.08
       objectReference: {fileID: 0}
     - target: {fileID: 8837045901857279311, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -897,6 +953,10 @@ PrefabInstance:
       propertyPath: flag
       value: 
       objectReference: {fileID: 21300000, guid: 8edea130942b5413babe02e34fa60b7d, type: 3}
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 32900000, guid: 0c47e0566ac5445a7ae50eca693f51df, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: AustraliaMarker
@@ -1134,6 +1194,10 @@ PrefabInstance:
       propertyPath: flag
       value: 
       objectReference: {fileID: 21300000, guid: 355910d29d7594dea8085c1a82bd5eb4, type: 3}
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 32900000, guid: 2e5c4ca28853e4ee5a5bf2fe9637a78a, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: NewZealandMarker
@@ -1204,6 +1268,10 @@ PrefabInstance:
       propertyPath: flag
       value: 
       objectReference: {fileID: 21300000, guid: 508183043165a43a8aa7f05c0c28a75f, type: 3}
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 32900000, guid: 43a0dc3c368e64142981812dd541877e, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: PhilippinesMarker
@@ -1316,6 +1384,10 @@ PrefabInstance:
       propertyPath: flag
       value: 
       objectReference: {fileID: 21300000, guid: b059fedebcf0d4aa49f6bf850d3e898a, type: 3}
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 32900000, guid: 4c0961ea3cac44543be3a0f4928e1503, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: PeruMarker
@@ -1521,6 +1593,10 @@ PrefabInstance:
       propertyPath: flag
       value: 
       objectReference: {fileID: 21300000, guid: ee1b66f54ce7a4fff8a752604d81fdc0, type: 3}
+    - target: {fileID: 6989443944254212477, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 32900000, guid: 92349224447654b4c9254f45caf03f1e, type: 3}
     - target: {fileID: 8837045901857279280, guid: a813c21c4098b424591ebb8dc1bc2e7f, type: 3}
       propertyPath: m_Name
       value: BrazilMarker
@@ -1588,7 +1664,7 @@ GameObject:
   - component: {fileID: 1915009472}
   - component: {fileID: 1915009471}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: BottomBarPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1634,7 +1710,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 8400000, guid: 3687af647142b4e7090289eda54074a8, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0

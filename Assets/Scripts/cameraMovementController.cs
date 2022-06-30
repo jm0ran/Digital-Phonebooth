@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class cameraMovementController : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class cameraMovementController : MonoBehaviour
 
     //Lower Bar References
     private Transform lowerBar;
-    private Vector3 lowerStowedTarget = new Vector3(175,-450,0);
+    private Vector3 lowerStowedTarget = new Vector3(175,-500,0);
     private Vector3 lowerBarTarget = new Vector3(175,-140,0);
     
     //Dictionary to store corrolations between dial codes and destinations
@@ -121,6 +122,12 @@ public class cameraMovementController : MonoBehaviour
             }
             
             if(found){
+                dialedFlag.sprite = destDictionary[currentlyDialed].GetComponent<markerInfo>().flag;
+                VideoPlayer bottomBarVideo = GameObject.Find("BottomBar").GetComponent<VideoPlayer>();
+                bottomBarVideo.clip = destDictionary[currentlyDialed].GetComponent<markerInfo>().video;
+                bottomBarVideo.Play();
+                bottomBarVideo.Pause();
+
                 Debug.Log("Starting slide");
                 Transform DialBar = GameObject.Find("DialBar").GetComponent<Transform>();
                 Vector3 StowedBarTarget = new Vector3(5, 500, 0);
@@ -143,7 +150,7 @@ public class cameraMovementController : MonoBehaviour
                     yield return null;
                 }
 
-                dialedFlag.sprite = destDictionary[currentlyDialed].GetComponent<markerInfo>().flag;
+                
 
 
                 //Top bar comes back AND Bottom Bar comes in
@@ -161,6 +168,7 @@ public class cameraMovementController : MonoBehaviour
                 yield return new WaitForSeconds(0.7f);
                 if(markerAudio){
                     markerAudio.Play(0);
+                    bottomBarVideo.Play();
                     Debug.Log(markerAudio.clip.length);
                     yield return new WaitForSeconds(1f);
                     while(markerAudio.time <= markerAudio.clip.length && markerAudio.time != 0 && !Input.GetKeyDown(KeyCode.H)){
